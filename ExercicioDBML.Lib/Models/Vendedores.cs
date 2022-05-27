@@ -1,4 +1,4 @@
-namespace ExercicioDBML.Lib
+namespace ExercicioDBML.Lib.Models
 {
     public class Vendedores
     {

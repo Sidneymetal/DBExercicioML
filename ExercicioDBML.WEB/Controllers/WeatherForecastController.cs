@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace ExercicioDBML.Controllers;
+namespace ExercicioDBML.Web.Controllers;
 
 [ApiController]
 [Route("[controller]")]
