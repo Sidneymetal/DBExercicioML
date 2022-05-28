@@ -1,6 +1,6 @@
 namespace ExercicioDBML.Lib.Models
 {
-    public class Vendedores
+    public class Vendedores : Produtos
     {
         
     }

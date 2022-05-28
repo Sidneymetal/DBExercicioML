@@ -1,6 +1,6 @@
 namespace ExercicioDBML.Lib.Models
 {
-    public class Usuarios
+    public class Usuarios : Pedidos
     {
         
     }

@@ -1,6 +1,6 @@
 namespace ExercicioDBML.Lib.Models
 {
-    public class Transportadores
+    public class Transportadores : Pedidos
     {
         
     }
