@@ -4,7 +4,8 @@ using ExercicioDBML.Lib.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<ConcessionariaContext>(conn => conn.UseNpgsql(builder.Configuration.GetConnectionString("ConcessionariaDB")));
+builder.Services.AddDbContext<ExercicioMLContext>
+(conn => conn.UseNpgsql(builder.Configuration.GetConnectionString("ExercicioDBML")));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

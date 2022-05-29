@@ -13,10 +13,13 @@ namespace ExercicioDBML.Lib.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Pedidos>().ToTable("Pedidos");
-            modelBuilder.Entity<Produtos>().ToTable("Produtos");
-            modelBuilder.Entity<Transportadores>().ToTable("Transportadores");
-            modelBuilder.Entity<Usuarios>().ToTable("Usuarios");
-            modelBuilder.Entity<Vendedores>().ToTable("Vendedores");
+            modelBuilder.Entity<Pedidos>().HasKey(key => key.Id);
+            modelBuilder.Entity<Pedidos>()
+                .HasOne(x => x.ProdutosXPedidos)
+                .WithOne(x => x.Pedidos);
+
+            modelBuilder.Entity<Produtos>().ToTable("Produtos");            
+            
             modelBuilder.Entity<ProdutosXPedidos>().ToTable("ProdutosXPedidos");
         }
 

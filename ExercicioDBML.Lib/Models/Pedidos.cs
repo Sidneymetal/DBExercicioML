@@ -1,7 +1,11 @@
 namespace ExercicioDBML.Lib.Models
 {
-    public class Pedidos : ProdutosXPedidos
+    public class Pedidos 
     {
-        public int Id;
+        public string Id { get; set; }
+        public DateTime DataPedidos { get; set; }
+        public string Status { get; set; }        
+        public int IdTransportadora { get; set; }        
+        public int IdUsuario { get; set; }        
     }
 }
