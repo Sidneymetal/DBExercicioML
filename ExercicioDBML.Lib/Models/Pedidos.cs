@@ -6,6 +6,7 @@ namespace ExercicioDBML.Lib.Models
         public DateTime DataPedidos { get; set; }
         public string Status { get; set; }        
         public int IdTransportadora { get; set; }        
-        public int IdUsuario { get; set; }        
+        public int IdUsuario { get; set; }
+        public Lista<ProdutosXPedidos> ProdutosXPedidos { get; set; }        
     }
 }

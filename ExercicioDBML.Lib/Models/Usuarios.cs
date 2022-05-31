@@ -1,6 +1,6 @@
 namespace ExercicioDBML.Lib.Models
 {
-    public class Usuarios : Pedidos
+    public class Usuarios
     {
         public string Id { get; set; }
         public string Nome { get; set; }
@@ -8,5 +8,6 @@ namespace ExercicioDBML.Lib.Models
         public string Cpf { get; set; }
         public DateTime DataNascimento { get; set; }
         public string Senha { get; set; }
+        public List<Pedidos> PegarPedidos { get; set; }
     }
 }

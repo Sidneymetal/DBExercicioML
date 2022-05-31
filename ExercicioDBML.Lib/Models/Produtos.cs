@@ -1,6 +1,6 @@
 namespace ExercicioDBML.Lib.Models
 {
-    public class Produtos 
+    public class Produtos
     {
         public string Id { get; set; }
         public string Nome { get; set; }
@@ -8,5 +8,8 @@ namespace ExercicioDBML.Lib.Models
         public double Valor { get; set; }
         public DateTime DataCadastro { get; set; }
         public int IdVendedor { get; set; }
+        public int IdProduto { get; set; }
+        public Lista<ProdutosXPedidos> ProdutosXPedidos { get; set; }
+
     }
 }
