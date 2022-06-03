@@ -7,9 +7,9 @@ namespace ExercicioDBML.Lib.Models
         public string Descricao { get; set; }
         public double Valor { get; set; }
         public DateTime DataCadastro { get; set; }
+        public Vendedores Vendedor {get; set;}
         public int IdVendedor { get; set; }
-        public int IdProduto { get; set; }
-        public Lista<ProdutosXPedidos> ProdutosXPedidos { get; set; }
+        public List<ProdutosXPedidos> ProdutosXPedidos { get; set; }
 
     }
 }

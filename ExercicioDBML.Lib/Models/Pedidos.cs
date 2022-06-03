@@ -7,6 +7,6 @@ namespace ExercicioDBML.Lib.Models
         public string Status { get; set; }        
         public int IdTransportadora { get; set; }        
         public int IdUsuario { get; set; }
-        public Lista<ProdutosXPedidos> ProdutosXPedidos { get; set; }        
+        public List<ProdutosXPedidos> ProdutosXPedidos { get; set; }        
     }
 }
