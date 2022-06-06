@@ -10,50 +10,38 @@ namespace ExercicioDBML.Lib.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Pedido>().ToTable("mlt_pedidos");
+            modelBuilder.Entity<Pedido>().HasKey(x => x.IdPedido);
+            modelBuilder.Entity<Pedido>().HasOne(x => x.Transportadora).WithMany(x => x.ListaPedidos).HasForeignKey(x => x.IdTransportadora);
+            modelBuilder.Entity<Pedido>().HasOne(x => x.Cliente).WithMany(x => x.ListaPedidos).HasForeignKey(x => x.IdUsuario);
 
-            modelBuilder.Entity<Pedidos>().ToTable("Pedidos");
-            modelBuilder.Entity<Pedidos>().HasKey(key => key.Id);
-            modelBuilder.Entity<Pedidos>().HasOne(x => x.Transportadoras)
-                                            .WithMany(x => x.PegarPedidos)
-                                            .HasForeignKey(x => x.IdTransportadora);
-            modelBuilder.Entity<Pedidos>().HasOne(x => x.Usuarios)
-                                            .WithMany(x => x.PegarPedidos)
-                                            .HasForeignKey(x => x.IdUsuario);                       
+            modelBuilder.Entity<Produto>().ToTable("mlt_produtos");
+            modelBuilder.Entity<Produto>().HasKey(x => x.IdProduto);
+            modelBuilder.Entity<Produto>().HasOne(x => x.Vendedor).WithMany(x => x.ListaProdutos).HasForeignKey(x => x.IdVendedor);
 
-            modelBuilder.Entity<Produtos>().ToTable("Produtos");
-            modelBuilder.Entity<Produtos>().HasKey(key => key.Id);
-            modelBuilder.Entity<Produtos>().HasOne(x => x.Vendedor)
-                                            .WithMany(x => x.ListaProdutos)
-                                            .HasForeignKey(x => x.IdVendedor);
+            modelBuilder.Entity<Transportadora>().ToTable("mlt_transportadoras");
+            modelBuilder.Entity<Transportadora>().HasKey(x => x.IdTransportadora);
+            modelBuilder.Entity<Transportadora>().HasMany(x => x.ListaPedidos).WithOne(x => x.Transportadora);
 
-            modelBuilder.Entity<ProdutosXPedidos>().ToTable("ProdutosXPedidos");
-            modelBuilder.Entity<ProdutosXPedidos>().HasKey(key => key.Id);
-            modelBuilder.Entity<ProdutosXPedidos>().HasOne(x => x.Produtos)
-                                                    .WithMany(x => x.ProdutosXPedidos)
-                                                    .HasForeignKey(x => x.IdProduto);
-            modelBuilder.Entity<ProdutosXPedidos>().HasOne(x => x.Pedidos)
-                                                    .WithMany(x => x.ProdutosXPedidos)
-                                                    .HasForeignKey(x => x.IdPedido);
+            modelBuilder.Entity<Vendedor>().ToTable("mlt_vendedores");
+            modelBuilder.Entity<Vendedor>().HasKey(x => x.IdVendedor);
+            modelBuilder.Entity<Vendedor>().HasMany(x => x.ListaProdutos).WithOne(x => x.Vendedor).HasForeignKey(x => x.IdVendedor);
 
-            modelBuilder.Entity<Usuarios>().ToTable("Usuarios");
-            modelBuilder.Entity<Usuarios>().HasKey(key => key.Id);
-            modelBuilder.Entity<Usuarios>().HasMany(x => x.Pedidos)
-                                            .WithMany(x => x.Produtos)
-                                            .HasForeignKey(x => x.IdUsuario);
+            modelBuilder.Entity<Usuario>().ToTable("mlt_usuarios");
+            modelBuilder.Entity<Usuario>().HasKey(x => x.IdUsuario);
+            modelBuilder.Entity<Usuario>().HasMany(x => x.ListaPedidos).WithOne(x => x.Cliente).HasForeignKey(x => x.IdUsuario);
 
-            modelBuilder.Entity<Transportadoras>().ToTable("Transportadoras");
-            modelBuilder.Entity<Transportadoras>().HasKey(key => key.Id);
-            modelBuilder.Entity<Transportadoras>().HasMany(x => x.Pedidos)
-                                            .WithMany(x => x.Produtos)
-                                            .HasForeignKey(x => x.IdTransportadora);
+            modelBuilder.Entity<ProdutoXPedido>().ToTable("mlt_produtosxpedidos");
+            modelBuilder.Entity<ProdutoXPedido>().HasKey(x => x.IdProdutoXPedido);
+            modelBuilder.Entity<ProdutoXPedido>().HasOne(x => x.Produto).WithMany(x => x.ListaProdutosXPedidos).HasForeignKey(x => x.IdProduto);
+            modelBuilder.Entity<ProdutoXPedido>().HasOne(x => x.Pedido).WithMany(x => x.ListaProdutosXPedidos).HasForeignKey(x => x.IdPedido);
         }
 
-        public DbSet<Pedidos> Pedidos { get; set; }
-        public DbSet<Produtos> Produtos { get; set; }
-        public DbSet<Transportadoras> Transportadoras { get; set; }
-        public DbSet<Usuarios> Usuarios { get; set; }
-        public DbSet<Vendedores> Vendedores { get; set; }
-        public DbSet<ProdutosXPedidos> ProdutosXPedidos { get; set; }
+        public DbSet<Pedido> Pedidos { get; set; }
+        public DbSet<Produto> Produtos { get; set; }
+        public DbSet<ProdutoXPedido> ProdutosXPedidos { get; set; }
+        public DbSet<Transportadora> Transportadoras { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Vendedor> Vendedores { get; set; }
     }
 }

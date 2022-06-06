@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using ExercicioDBML.Lib.Data;
+using Microsoft.AspNetCore.Mvc;
 namespace ExercicioDBML;
 
 public class WeatherForecast

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-namespace ExercicioDBML.Web.Controllers;
+using ExercicioDBML.Lib.Data;
+namespace ExercicioDBML.WEB.Controllers;
 
 [ApiController]
 [Route("[controller]")]
