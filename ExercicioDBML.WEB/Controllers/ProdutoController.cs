@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ExercicioDBML.Lib.Data;
+
 namespace ExercicioDBML.WEB.Controllers
 {
     [ApiController]

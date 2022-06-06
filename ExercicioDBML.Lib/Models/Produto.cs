@@ -10,7 +10,7 @@ namespace ExercicioDBML.Lib.Models
         public string Descricao { get; set; }
         public double Valor { get; set; }
         public DateTime DataCadastro { get; set; }
-        public Vendedor Vendedor { get; set; }
+        public Vendedor? Vendedor { get; set; }
         public List<ProdutoXPedido> ListaProdutosXPedidos { get; set; }
         public Produto()
         {

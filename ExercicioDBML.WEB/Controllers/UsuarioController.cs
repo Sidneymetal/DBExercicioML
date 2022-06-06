@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ExercicioDBML.Lib.Data;
 using ExercicioDBML.Lib.Models;
+using ExercicioDBML.WEB.DTOs;
 namespace ExercicioDBML.WEB.Controllers
 {
     [ApiController]
@@ -45,9 +46,17 @@ namespace ExercicioDBML.WEB.Controllers
             _context.SaveChanges();
             return Ok(usuario);
         }
+        [HttpPost("Adicionar")]
+        public IActionResult Adicionar(PedidoDTO pedidoDto)
+        {
+            var pedido = new Pedido(pedidoDto.IdPedido, pedidoDto.IdTransportadora, pedidoDto.IdUsuario, pedidoDto.DataPedido, pedidoDto.StatusPedido, pedidoDto.Transportadora, pedidoDto.Cliente);
+            _context.Pedidos.Add(pedido);
+            _context.SaveChanges();
+            return Ok(pedido);
+        }
         //Delete
         [HttpDelete("Deletar/{id}")]
-        public IActionResult DeletarUsuario(int id)
+        public IActionResult DeletarUsuarioPorId(int id)
         {
             var usuario = _context.Usuarios.Find(id);
             _context.Usuarios.Remove(usuario);

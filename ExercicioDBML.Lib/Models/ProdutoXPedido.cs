@@ -7,8 +7,8 @@ namespace ExercicioDBML.Lib.Models
         public int IdProdutoXPedido { get; set; }
         public int IdProduto { get; set; }
         public int IdPedido { get; set; }
-        public Produto Produto { get; set; }
-        public Pedido Pedido { get; set; }
+        public Produto? Produto { get; set; }
+        public Pedido? Pedido { get; set; }
 
         public ProdutoXPedido()
         {
