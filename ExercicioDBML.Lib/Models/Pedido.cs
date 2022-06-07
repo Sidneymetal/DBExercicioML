@@ -4,7 +4,7 @@ namespace ExercicioDBML.Lib.Models
 {
     public class Pedido
     {
-        public int IdPedido { get; set; }
+        public int Id { get; set; }
         public int IdTransportadora { get; set; }
         public int IdUsuario { get; set; }
         public DateTime DataPedido { get; set; }
@@ -18,9 +18,9 @@ namespace ExercicioDBML.Lib.Models
 
         }
 
-        public Pedido(int idPedido, int idTransportadora, int idUsuario, DateTime dataPedido, string statusPedido, Transportadora transportadora, Usuario usuario)
+        public Pedido(int id, int idTransportadora, int idUsuario, DateTime dataPedido, string statusPedido, Transportadora transportadora, Usuario usuario)
         {
-            IdPedido = idPedido;
+            Id = id;
             IdTransportadora = idTransportadora;
             IdUsuario = idUsuario;
             DataPedido = dataPedido;

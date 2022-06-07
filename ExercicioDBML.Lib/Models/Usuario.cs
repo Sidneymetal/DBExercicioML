@@ -4,7 +4,7 @@ namespace ExercicioDBML.Lib.Models
 {
     public class Usuario
     {
-        public int IdUsuario { get; set; }
+        public int Id { get; set; }
         public string Nome { get; set; }
         public string Email { get; set; }
         public string Cpf { get; set; }
@@ -15,9 +15,9 @@ namespace ExercicioDBML.Lib.Models
         {
 
         }
-        public Usuario(int idUsuario, string nome, string email, string cpf, DateTime dataNascimento, string senha)
+        public Usuario(int id, string nome, string email, string cpf, DateTime dataNascimento, string senha)
         {
-            IdUsuario = idUsuario;
+            Id = id;
             Nome = nome;
             Email = email;
             Cpf = cpf;

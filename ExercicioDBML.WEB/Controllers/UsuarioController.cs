@@ -22,7 +22,7 @@ namespace ExercicioDBML.WEB.Controllers
         public IActionResult GetTodos()
         {
             var pedidos = _context.Usuarios.ToList();
-            return Ok();
+            return Ok(pedidos);
         }
         //Read
         [HttpGet("{id}")]

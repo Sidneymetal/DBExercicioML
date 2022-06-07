@@ -11,7 +11,7 @@ namespace ExercicioDBML.Lib.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Pedido>().ToTable("mlt_pedidos");
-            modelBuilder.Entity<Pedido>().HasKey(x => x.IdPedido);
+            modelBuilder.Entity<Pedido>().HasKey(x => x.Id);
             modelBuilder.Entity<Pedido>().HasOne(x => x.Transportadora).WithMany(x => x.ListaPedidos).HasForeignKey(x => x.IdTransportadora);
             modelBuilder.Entity<Pedido>().HasOne(x => x.Cliente).WithMany(x => x.ListaPedidos).HasForeignKey(x => x.IdUsuario);
 
@@ -28,8 +28,8 @@ namespace ExercicioDBML.Lib.Data
             modelBuilder.Entity<Vendedor>().HasMany(x => x.ListaProdutos).WithOne(x => x.Vendedor).HasForeignKey(x => x.IdVendedor);
 
             modelBuilder.Entity<Usuario>().ToTable("mlt_usuarios");
-            modelBuilder.Entity<Usuario>().HasKey(x => x.IdUsuario);
-            modelBuilder.Entity<Usuario>().HasMany(x => x.ListaPedidos).WithOne(x => x.Cliente).HasForeignKey(x => x.IdUsuario);
+            modelBuilder.Entity<Usuario>().HasKey(x => x.Id);
+            modelBuilder.Entity<Usuario>().HasMany(x => x.ListaPedidos).WithOne(x => x.Cliente).HasForeignKey(x => x.Id);
 
             modelBuilder.Entity<ProdutoXPedido>().ToTable("mlt_produtosxpedidos");
             modelBuilder.Entity<ProdutoXPedido>().HasKey(x => x.IdProdutoXPedido);
