@@ -4,7 +4,7 @@ namespace ExercicioDBML.Lib.Models
 {
     public class Vendedor
     {
-        public int IdVendedor { get; set; }
+        public int Id { get; set; }
         public string Nome { get; set; }
         public string Email { get; set; }
         public string Cnpj { get; set; }
@@ -14,9 +14,9 @@ namespace ExercicioDBML.Lib.Models
         {
 
         }
-        public Vendedor(int idVendedor, string nome, string email, string cnpj, DateTime dataCadastro)
+        public Vendedor(int id, string nome, string email, string cnpj, DateTime dataCadastro)
         {
-            IdVendedor = idVendedor;
+            Id = id;
             Nome = nome;
             Email = email;
             Cnpj = cnpj;

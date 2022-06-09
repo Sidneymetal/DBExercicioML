@@ -17,7 +17,6 @@ namespace ExercicioDBML.Lib.Models
         {
 
         }
-
         public Pedido(int id, int idTransportadora, int idUsuario, DateTime dataPedido, string statusPedido, Transportadora transportadora, Usuario usuario)
         {
             Id = id;

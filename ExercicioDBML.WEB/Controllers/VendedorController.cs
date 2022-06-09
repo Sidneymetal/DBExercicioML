@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using ExercicioDBML.Lib.Data;
+using ExercicioDBML.Lib.Models;
+using ExercicioDBML.WEB.DTOs;
+using ExercicioDBML.Lib.Data.Repositorio;
 namespace ExercicioDBML.WEB.Controllers
 {
     [ApiController]
@@ -8,15 +9,41 @@ namespace ExercicioDBML.WEB.Controllers
     public class VendedorController : ControllerBase
     {
         private readonly ILogger<VendedorController> _logger;
-        private readonly ExercicioMLContext _context;
+        private readonly VendedorRepositorio _repositorio;
 
-        public VendedorController(ILogger<VendedorController> logger, ExercicioMLContext context)
+        public VendedorController(ILogger<VendedorController> logger, VendedorRepositorio repositorio)
         {
             _logger = logger;
-            _context = context;
+            _repositorio = repositorio;
         }
-        public static void Main()
+        [HttpGet("ListarTodos")]
+        public IActionResult ListarVendedores()
         {
+          return Ok(_repositorio.ListarTodos());
+        }
+        [HttpGet("ListarTodosPorId")]
+        public IActionResult ListarVendedoresId(int id)
+        {
+            return Ok(_repositorio.ListarTodosPorId(id));
+        }
+        /*[HttpPost()]
+        public IActionResult AdicionarVendedor(VendedorDTO vendedorDTO)
+        {
+            var vendedor = new Vendedor(vendedorDTO.IdVendedor, vendedorDTO.Nome, vendedorDTO.Email, vendedorDTO.Cnpj, vendedorDTO.DataCadastro);
+            _repositorio.Adicionar(vendedor);
+            return Ok("Vendedor adicionado.");
+        }*/
+        [HttpPut()]
+        public IActionResult AlterarDadosVendedor(int id, string email)
+        {
+            _repositorio.AlterarEmail(id, email);
+            return Ok("Vendedor alterado.");
+        }
+        [HttpDelete("{id}")]
+        public IActionResult DeletarVendedorPorId(int id)
+        {
+           _repositorio.Deletar(id);
+            return Ok("Vendedor Removida.");
         }
     }
 }

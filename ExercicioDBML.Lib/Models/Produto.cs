@@ -4,7 +4,7 @@ namespace ExercicioDBML.Lib.Models
 {
     public class Produto
     {
-        public int IdProduto { get; set; }
+        public int Id { get; set; }
         public int IdVendedor { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
@@ -16,9 +16,9 @@ namespace ExercicioDBML.Lib.Models
         {
 
         }
-        public Produto(int idProduto, int idVendedor, string nome, string descricao, Double valor, DateTime dataCadastro, Vendedor vendedor)
+        public Produto(int id, int idVendedor, string nome, string descricao, Double valor, DateTime dataCadastro, Vendedor vendedor)
         {
-            IdProduto = idProduto;
+            Id = id;
             Nome = nome;
             Descricao = descricao;
             Valor = valor;

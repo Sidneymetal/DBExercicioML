@@ -24,7 +24,7 @@ CREATE TABLE "mlt_vendedores" (
   "data_cadastro" timestamp
 );
 
-CREATE TABLE "mlt_transportadores" (
+CREATE TABLE "mlt_transportadoras" (
   "id" int PRIMARY KEY,
   "nome" varchar(256),
   "telefone" varchar(14),
@@ -39,11 +39,12 @@ CREATE TABLE "mlt_pedidos" (
   "id_usuario" int
 );
 
-CREATE TABLE "mlt_produtosXpedidos" (
+CREATE TABLE mlt_produtosXpedidos (
   "id" int PRIMARY KEY,
   "id_produto" int,
   "id_pedido" int
 );
+Drop Table "mlt_produtosXpedidos" 
 
 ALTER TABLE "mlt_produtos" ADD FOREIGN KEY ("id_vendedor") REFERENCES "mlt_vendedores" ("id");
 
@@ -51,6 +52,9 @@ ALTER TABLE "mlt_produtosXpedidos" ADD FOREIGN KEY ("id_pedido") REFERENCES "mlt
 
 ALTER TABLE "mlt_produtosXpedidos" ADD FOREIGN KEY ("id_produto") REFERENCES "mlt_produtos" ("id");
 
-ALTER TABLE "mlt_pedidos" ADD FOREIGN KEY ("id_transportadora") REFERENCES "mlt_transportadores" ("id");
+ALTER TABLE "mlt_pedidos" ADD FOREIGN KEY ("id_transportadora") REFERENCES "mlt_transportadoras" ("id");
 
 ALTER TABLE "mlt_pedidos" ADD FOREIGN KEY ("id_usuario") REFERENCES "mlt_usuarios" ("id");
+
+SELECT * FROM "mlt_usuarios"
+

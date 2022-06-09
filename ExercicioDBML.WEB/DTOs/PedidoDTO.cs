@@ -3,6 +3,7 @@ namespace ExercicioDBML.WEB.DTOs
 {
     public class PedidoDTO
     {
+        public int Id { get; set; }
         public int IdPedido { get; set; }
         public int IdTransportadora { get; set; }
         public int IdUsuario { get; set; }

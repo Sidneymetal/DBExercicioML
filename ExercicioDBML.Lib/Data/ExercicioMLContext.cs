@@ -16,7 +16,7 @@ namespace ExercicioDBML.Lib.Data
             modelBuilder.Entity<Pedido>().HasOne(x => x.Cliente).WithMany(x => x.ListaPedidos).HasForeignKey(x => x.IdUsuario);
 
             modelBuilder.Entity<Produto>().ToTable("mlt_produtos");
-            modelBuilder.Entity<Produto>().HasKey(x => x.IdProduto);
+            modelBuilder.Entity<Produto>().HasKey(x => x.Id);
             modelBuilder.Entity<Produto>().HasOne(x => x.Vendedor).WithMany(x => x.ListaProdutos).HasForeignKey(x => x.IdVendedor);
 
             modelBuilder.Entity<Transportadora>().ToTable("mlt_transportadoras");
@@ -24,7 +24,7 @@ namespace ExercicioDBML.Lib.Data
             modelBuilder.Entity<Transportadora>().HasMany(x => x.ListaPedidos).WithOne(x => x.Transportadora);
 
             modelBuilder.Entity<Vendedor>().ToTable("mlt_vendedores");
-            modelBuilder.Entity<Vendedor>().HasKey(x => x.IdVendedor);
+            modelBuilder.Entity<Vendedor>().HasKey(x => x.Id);
             modelBuilder.Entity<Vendedor>().HasMany(x => x.ListaProdutos).WithOne(x => x.Vendedor).HasForeignKey(x => x.IdVendedor);
 
             modelBuilder.Entity<Usuario>().ToTable("mlt_usuarios");

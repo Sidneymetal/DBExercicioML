@@ -1,8 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using ExercicioDBML.Lib.Data;
 using ExercicioDBML.Lib.Models;
 using ExercicioDBML.WEB.DTOs;
+using ExercicioDBML.Lib.Data.Repositorio;
 namespace ExercicioDBML.WEB.Controllers
 {
     [ApiController]
@@ -10,58 +9,41 @@ namespace ExercicioDBML.WEB.Controllers
     public class UsuarioController : ControllerBase
     {
         private readonly ILogger<UsuarioController> _logger;
-        private readonly ExercicioMLContext _context;
+        private readonly UsuarioRepositorio _repositorio;
 
-        public UsuarioController(ILogger<UsuarioController> logger, ExercicioMLContext context)
+        public UsuarioController(ILogger<UsuarioController> logger, UsuarioRepositorio repositorio)
         {
             _logger = logger;
-            _context = context;
-        }
-        //Create
-        [HttpGet()]
-        public IActionResult GetTodos()
+            _repositorio = repositorio;
+        }        
+        [HttpGet("ListarTodos")]
+        public IActionResult ListarTodos()
         {
-            var pedidos = _context.Usuarios.ToList();
-            return Ok(pedidos);
+           return Ok(_repositorio.ListarTodos());
         }
-        //Read
-        [HttpGet("{id}")]
-        public IActionResult GetPorId(int id)
-        {            
-            return Ok(_context.Usuarios.Find(id));
-        }
-        //Update
-        [HttpPost("{id}")]
-        public IActionResult SalvarPorId(Usuario usuario)
+        [HttpGet("ListarTodosPorId")]
+        public IActionResult ListarTodosPorId(int id)
         {
-            _context.Usuarios.Add(usuario);
-            _context.SaveChanges();
-            return Ok();
-        }
-        [HttpPut("AlterarSenha/{id}/{senha}")]
-        public IActionResult AlterarSenha(int id, string senha)
+            return Ok(_repositorio.ListarTodosPorId(id));
+        }        
+        [HttpPost()]
+        public IActionResult AdicionarUsuario(UsuarioDTO usuarioDto)
         {
-            var usuario = _context.Usuarios.Find(id);
-            usuario.Senha = senha;
-            _context.SaveChanges();
-            return Ok(usuario);
+            var usuario = new Usuario(usuarioDto.IdUsuario, usuarioDto.Nome, usuarioDto.Email, usuarioDto.Cpf, usuarioDto.DataNascimento, usuarioDto.Senha);
+            _repositorio.Adicionar(usuario);           
+            return Ok("Usuário adicionado.");
         }
-        [HttpPost("Adicionar")]
-        public IActionResult Adicionar(PedidoDTO pedidoDto)
+        [HttpPut()]
+        public IActionResult AlterarSenhaDoUsuario(int id, string senha)
         {
-            var pedido = new Pedido(pedidoDto.IdPedido, pedidoDto.IdTransportadora, pedidoDto.IdUsuario, pedidoDto.DataPedido, pedidoDto.StatusPedido, pedidoDto.Transportadora, pedidoDto.Cliente);
-            _context.Pedidos.Add(pedido);
-            _context.SaveChanges();
-            return Ok(pedido);
-        }
-        //Delete
-        [HttpDelete("Deletar/{id}")]
-        public IActionResult DeletarUsuarioPorId(int id)
+            _repositorio.AlterarSenhaUsuario(id, senha);
+            return Ok("Senha alterada.");
+        }        
+        [HttpDelete("{id}")]
+        public IActionResult RemoverUsuarioPorId(int id)
         {
-            var usuario = _context.Usuarios.Find(id);
-            _context.Usuarios.Remove(usuario);
-            _context.SaveChanges();
-            return Ok("Usuario Removido.");
+            _repositorio.Deletar(id);
+            return Ok("Usuário removido.");
         }
     }
 }

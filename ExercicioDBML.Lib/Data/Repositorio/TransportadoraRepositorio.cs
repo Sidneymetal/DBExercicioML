@@ -1,0 +1,19 @@
+using ExercicioDBML.Lib.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace ExercicioDBML.Lib.Data.Repositorio
+{
+    public class TransportadoraRepositorio : BaseRepositorio<Transportadora>
+    {
+        public TransportadoraRepositorio(ExercicioMLContext context) : base(context, context.Transportadoras)
+        {
+
+        }
+        public void AlterarEmailTransportadora(int id, string email)
+        {
+            var item = _dbset.Find(id);
+            item.Email = email;
+            _context.SaveChanges();
+        }
+    }
+}

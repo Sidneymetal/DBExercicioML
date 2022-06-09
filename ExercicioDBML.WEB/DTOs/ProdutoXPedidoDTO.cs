@@ -8,6 +8,5 @@ namespace ExercicioDBML.WEB.DTOs
         public int IdPedido { get; set; }
         public Produto Produto { get; set; }
         public Pedido Pedido { get; set; }
-
     }
 }
