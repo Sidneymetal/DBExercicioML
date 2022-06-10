@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using ExercicioDBML.Lib.Data;
 using ExercicioDBML.Lib.Data.Repositorio;
 using Microsoft.AspNetCore.Mvc;
+using ExercicioDBML.Lib.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,12 @@ builder.Services.AddScoped<ProdutoXPedidoRepositorio>();
 builder.Services.AddScoped<TransportadoraRepositorio>();
 builder.Services.AddScoped<UsuarioRepositorio>();
 builder.Services.AddScoped<VendedorRepositorio>();
+builder.Services.AddScoped<IRepositorioProduto, ProdutoRepositorio>();
+builder.Services.AddScoped<IRepositorioPedido, PedidoRepositorio>();
+builder.Services.AddScoped<IRepositorioProdutoXPedido, ProdutoXPedidoRepositorio>();
+builder.Services.AddScoped<IRepositorioTrasportadora, TransportadoraRepositorio>();
+builder.Services.AddScoped<IRepositorioUsuario, UsuarioRepositorio>();
+builder.Services.AddScoped<IRepositorioVendedor, VendedorRepositorio>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

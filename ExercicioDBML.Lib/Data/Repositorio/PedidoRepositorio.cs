@@ -1,8 +1,9 @@
+using ExercicioDBML.Lib.Interfaces;
 using ExercicioDBML.Lib.Models;
 
 namespace ExercicioDBML.Lib.Data.Repositorio
 {
-    public class PedidoRepositorio : BaseRepositorio<Pedido>
+    public class PedidoRepositorio : BaseRepositorio<Pedido>, IRepositorioPedido
     {
         public PedidoRepositorio(ExercicioMLContext context) : base (context, context.Pedidos)
         {

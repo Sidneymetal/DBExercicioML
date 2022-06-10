@@ -1,8 +1,8 @@
+using ExercicioDBML.Lib.Interfaces;
 using ExercicioDBML.Lib.Models;
-
 namespace ExercicioDBML.Lib.Data.Repositorio
 {
-    public class TransportadoraRepositorio : BaseRepositorio<Transportadora>
+    public class TransportadoraRepositorio : BaseRepositorio<Transportadora>, IRepositorioTrasportadora
     {
         public TransportadoraRepositorio(ExercicioMLContext context) : base(context, context.Transportadoras)
         {

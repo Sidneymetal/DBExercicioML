@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using ExercicioDBML.Lib.Models;
 using ExercicioDBML.WEB.DTOs;
 using ExercicioDBML.Lib.Data.Repositorio;
+using ExercicioDBML.Lib.Interfaces;
 
 namespace ExercicioDBML.WEB.Controllers
 {
@@ -9,10 +10,10 @@ namespace ExercicioDBML.WEB.Controllers
     [Route("[controller]")]
     public class PedidoController : ControllerBase
     {
-        protected readonly ILogger<PedidoController> _logger;
-        protected readonly PedidoRepositorio _repositorio;
+        protected readonly ILogger<IRepositorioPedido> _logger;
+        protected readonly IRepositorioPedido _repositorio;
 
-        public PedidoController(ILogger<PedidoController> logger, PedidoRepositorio repositorio)
+        public PedidoController(ILogger<IRepositorioPedido> logger, IRepositorioPedido repositorio)
         {
             _logger = logger;
             _repositorio = repositorio;

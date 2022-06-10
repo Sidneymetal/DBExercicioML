@@ -1,8 +1,9 @@
+using ExercicioDBML.Lib.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ExercicioDBML.Lib.Data.Repositorio
 {
-    public class BaseRepositorio <T> where T :class
+    public class BaseRepositorio <T> : IRepositorioBase <T> where T : ModelBase
     {
         protected readonly ExercicioMLContext _context;
         protected readonly DbSet<T> _dbset;
@@ -17,7 +18,7 @@ namespace ExercicioDBML.Lib.Data.Repositorio
         }             
         public T ListarTodosPorId(int id)
         {
-            return _dbset.Find(id);
+            return _dbset.AsNoTracking().First(x => x.Id == id);
         }
         public void Adicionar(T item)
         {

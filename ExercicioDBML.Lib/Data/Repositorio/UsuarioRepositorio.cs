@@ -1,8 +1,9 @@
+using ExercicioDBML.Lib.Interfaces;
 using ExercicioDBML.Lib.Models;
 
 namespace ExercicioDBML.Lib.Data.Repositorio
 {
-    public class UsuarioRepositorio : BaseRepositorio<Usuario> 
+    public class UsuarioRepositorio : BaseRepositorio<Usuario>, IRepositorioUsuario
     {    
         public UsuarioRepositorio(ExercicioMLContext context) : base(context, context.Usuarios)
         {

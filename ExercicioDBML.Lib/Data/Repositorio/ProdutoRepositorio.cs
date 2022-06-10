@@ -1,8 +1,9 @@
+using ExercicioDBML.Lib.Interfaces;
 using ExercicioDBML.Lib.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ExercicioDBML.Lib.Data.Repositorio;
-public class ProdutoRepositorio : BaseRepositorio<Produto>
+public class ProdutoRepositorio : BaseRepositorio<Produto>, IRepositorioProduto  
 {
     public ProdutoRepositorio(ExercicioMLContext context) : base(context, context.Produtos)
     {
