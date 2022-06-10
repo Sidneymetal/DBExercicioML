@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using ExercicioDBML.Lib.Models;
 using ExercicioDBML.WEB.DTOs;
 using ExercicioDBML.Lib.Data.Repositorio;
+
 namespace ExercicioDBML.WEB.Controllers
 {
     [ApiController]

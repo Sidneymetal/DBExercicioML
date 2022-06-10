@@ -1,22 +1,20 @@
-using Microsoft.EntityFrameworkCore;
-using ExercicioDBML.Lib.Data;
 namespace ExercicioDBML.Lib.Models
+
 {
-    public class ProdutoXPedido
-    {
-        public int IdProdutoXPedido { get; set; }
+    public class ProdutoXPedido : ModelBase
+    {       
         public int IdProduto { get; set; }
         public int IdPedido { get; set; }
         public Produto? Produto { get; set; }
         public Pedido? Pedido { get; set; }
 
-        public ProdutoXPedido()
+        public ProdutoXPedido() : base()
         {
 
         }
-        public ProdutoXPedido(int idProdutoXPedido, int idProduto, int idPedido, Produto produto, Pedido pedido)
+        public ProdutoXPedido(int id, int idProduto, int idPedido, Produto produto, Pedido pedido) : base(id)
         {
-            IdProdutoXPedido = idProdutoXPedido;
+            Id = id;
             IdProduto = idProduto;
             IdPedido = idPedido;
             Produto = produto;

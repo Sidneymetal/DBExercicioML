@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ExercicioDBML.Lib.Models;
+
 namespace ExercicioDBML.Lib.Data
 {
     public class ExercicioMLContext : DbContext
@@ -20,7 +21,7 @@ namespace ExercicioDBML.Lib.Data
             modelBuilder.Entity<Produto>().HasOne(x => x.Vendedor).WithMany(x => x.ListaProdutos).HasForeignKey(x => x.IdVendedor);
 
             modelBuilder.Entity<Transportadora>().ToTable("mlt_transportadoras");
-            modelBuilder.Entity<Transportadora>().HasKey(x => x.IdTransportadora);
+            modelBuilder.Entity<Transportadora>().HasKey(x => x.Id);
             modelBuilder.Entity<Transportadora>().HasMany(x => x.ListaPedidos).WithOne(x => x.Transportadora);
 
             modelBuilder.Entity<Vendedor>().ToTable("mlt_vendedores");
@@ -32,7 +33,7 @@ namespace ExercicioDBML.Lib.Data
             modelBuilder.Entity<Usuario>().HasMany(x => x.ListaPedidos).WithOne(x => x.Cliente).HasForeignKey(x => x.Id);
 
             modelBuilder.Entity<ProdutoXPedido>().ToTable("mlt_produtosxpedidos");
-            modelBuilder.Entity<ProdutoXPedido>().HasKey(x => x.IdProdutoXPedido);
+            modelBuilder.Entity<ProdutoXPedido>().HasKey(x => x.Id);
             modelBuilder.Entity<ProdutoXPedido>().HasOne(x => x.Produto).WithMany(x => x.ListaProdutosXPedidos).HasForeignKey(x => x.IdProduto);
             modelBuilder.Entity<ProdutoXPedido>().HasOne(x => x.Pedido).WithMany(x => x.ListaProdutosXPedidos).HasForeignKey(x => x.IdPedido);
         }

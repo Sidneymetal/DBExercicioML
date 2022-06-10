@@ -33,13 +33,13 @@ namespace ExercicioDBML.WEB.Controllers
         {
             return Ok(_repositorio.ListarProdutosIncluindoVendedor());
         }
-        /*[HttpPost()]
+        [HttpPost()]
         public IActionResult AdicionarProdutos(ProdutoDTO produtoDTO)
         {
             var produto = new Produto(produtoDTO.IdProduto, produtoDTO.IdVendedor, produtoDTO.Nome, produtoDTO.Descricao, produtoDTO.Valor, produtoDTO.DataCadastro, produtoDTO.Vendedor);
             _repositorio.Adicionar(produto);
             return Ok(produto); 
-        }*/
+        }
         [HttpPut()]
         public IActionResult AlterarValorDoProduto(int id, double valor)
         {

@@ -1,29 +1,27 @@
-using Microsoft.EntityFrameworkCore;
-using ExercicioDBML.Lib.Data;
 namespace ExercicioDBML.Lib.Models
+
 {
-    public class Pedido
-    {
-        public int Id { get; set; }
+    public class Pedido : ModelBase
+    {       
         public int IdTransportadora { get; set; }
         public int IdUsuario { get; set; }
-        public DateTime DataPedido { get; set; }
-        public string StatusPedido { get; set; }
+        public DateTime dataPedido{ get; set; }
+        public string status { get; set; }
         public Transportadora? Transportadora { get; set; }
         public Usuario? Cliente { get; set; }
         public List<ProdutoXPedido> ListaProdutosXPedidos { get; set; } = new List<ProdutoXPedido>();
 
-        public Pedido()
+        public Pedido() : base()
         {
-
+            
         }
-        public Pedido(int id, int idTransportadora, int idUsuario, DateTime dataPedido, string statusPedido, Transportadora transportadora, Usuario usuario)
+        public Pedido(int id, int idTransportadora, int idUsuario, DateTime dataPedido, string status, Transportadora transportadora, Usuario usuario) : base (id)
         {
             Id = id;
             IdTransportadora = idTransportadora;
             IdUsuario = idUsuario;
-            DataPedido = dataPedido;
-            StatusPedido = statusPedido;
+            dataPedido = dataPedido;
+            status = status;
             Transportadora = transportadora;
             Cliente = usuario;
         }

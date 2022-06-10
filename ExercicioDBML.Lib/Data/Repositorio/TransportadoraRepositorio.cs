@@ -1,5 +1,4 @@
 using ExercicioDBML.Lib.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace ExercicioDBML.Lib.Data.Repositorio
 {

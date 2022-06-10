@@ -27,13 +27,13 @@ namespace ExercicioDBML.WEB.Controllers
         {
             return Ok(_repositorio.ListarTodosPorId(id));
         }
-        /*[HttpPost()]
+        [HttpPost()]
         public IActionResult AdicionarPedidos(PedidoDTO pedidoDTO)
         {
             var pedido = new Pedido(pedidoDTO.Id, pedidoDTO.IdTransportadora, pedidoDTO.IdUsuario, pedidoDTO.DataPedido, pedidoDTO.StatusPedido, pedidoDTO.Transportadora, pedidoDTO.Cliente);
             _repositorio.Adicionar(pedido);
             return Ok("Pedido adicionado.");
-        }*/
+        }
         [HttpPut()]
         public IActionResult AlterarStatusPedido(int id, string status)
         {

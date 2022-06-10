@@ -1,4 +1,5 @@
 using ExercicioDBML.Lib.Models;
+
 namespace ExercicioDBML.WEB.DTOs
 {
     public class VendedorDTO

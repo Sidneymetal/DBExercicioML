@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using ExercicioDBML.Lib.Models;
 using ExercicioDBML.WEB.DTOs;
 using ExercicioDBML.Lib.Data.Repositorio;
+
 namespace ExercicioDBML.WEB.Controllers
 {
     [ApiController]
@@ -26,13 +27,13 @@ namespace ExercicioDBML.WEB.Controllers
         {
             return Ok(_repositorio.ListarTodosPorId(id));
         }
-        /*[HttpPost()]
+        [HttpPost()]
         public IActionResult AdicionarVendedor(VendedorDTO vendedorDTO)
         {
             var vendedor = new Vendedor(vendedorDTO.IdVendedor, vendedorDTO.Nome, vendedorDTO.Email, vendedorDTO.Cnpj, vendedorDTO.DataCadastro);
             _repositorio.Adicionar(vendedor);
             return Ok("Vendedor adicionado.");
-        }*/
+        }
         [HttpPut()]
         public IActionResult AlterarDadosVendedor(int id, string email)
         {
