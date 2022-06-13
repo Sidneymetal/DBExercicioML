@@ -1,9 +1,10 @@
+using ExercicioDBML.Lib.Data.Interfaces;
 using ExercicioDBML.Lib.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ExercicioDBML.Lib.Data.Repositorio
 {
-    public class BaseRepositorio <T> : IRepositorioBase <T> where T : ModelBase
+    public class BaseRepositorio <T> : IBaseRepositorio <T> where T : ModelBase
     {
         protected readonly ExercicioMLContext _context;
         protected readonly DbSet<T> _dbset;

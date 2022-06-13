@@ -3,7 +3,7 @@ using ExercicioDBML.Lib.Models;
 
 namespace ExercicioDBML.Lib.Data.Repositorio
 {
-    public class UsuarioRepositorio : BaseRepositorio<Usuario>, IRepositorioUsuario
+    public class UsuarioRepositorio : BaseRepositorio<Usuario>, IUsuarioRepositorio
     {    
         public UsuarioRepositorio(ExercicioMLContext context) : base(context, context.Usuarios)
         {

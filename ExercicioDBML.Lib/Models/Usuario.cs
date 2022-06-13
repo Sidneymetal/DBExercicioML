@@ -1,3 +1,5 @@
+using ExercicioDBML.Lib.Exceptions;
+
 namespace ExercicioDBML.Lib.Models
 
 {
@@ -22,5 +24,36 @@ namespace ExercicioDBML.Lib.Models
             DataNascimento = dataNascimento;
             Senha = senha;
         }
+        public void SetEmail(string email)
+        {
+            if (ValidarEmail(email))
+            {
+                Email = email;
+            }
+        }
+        public bool ValidarEmail(string email)
+        {
+            if (email.Contains("@"))
+            {
+                return true;
+            }
+            return false;
+        }
+        public void SetSenha(string senha)
+        {
+            if (ValidarSenha(senha))
+            {
+                Senha = senha;
+            }
+        }        
+        public bool ValidarSenha(string senha)
+        {
+            if (senha.Length >= 8)
+            {
+                return true;
+            }
+            throw new ExceptionsErroValidacao("A senha deve conter 8 caracteres.");
+        }
+       
     }
 }

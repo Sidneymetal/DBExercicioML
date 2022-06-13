@@ -1,3 +1,5 @@
+using ExercicioDBML.Lib.Exceptions;
+
 namespace ExercicioDBML.Lib.Models
 
 {
@@ -19,6 +21,21 @@ namespace ExercicioDBML.Lib.Models
             Email = email;
             Cnpj = cnpj;
             DataCadastro = dataCadastro;
+        }
+        public void SetEmail(string email)
+        {
+            if (ValidarEmail(email))
+            {
+                Email = email;
+            }
+        }
+        public bool ValidarEmail(string email)
+        {
+            if (email.Contains("@"))
+            {
+                return true;
+            }
+            throw new ExceptionsErroValidacao("Email deve conter @.");
         }
     }
 }

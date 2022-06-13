@@ -11,18 +11,12 @@ builder.Services.AddDbContext<ExercicioMLContext>(conn => conn.UseNpgsql(builder
 
 builder.Services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
-builder.Services.AddScoped<ProdutoRepositorio>();
-builder.Services.AddScoped<PedidoRepositorio>();
-builder.Services.AddScoped<ProdutoXPedidoRepositorio>();
-builder.Services.AddScoped<TransportadoraRepositorio>();
-builder.Services.AddScoped<UsuarioRepositorio>();
-builder.Services.AddScoped<VendedorRepositorio>();
-builder.Services.AddScoped<IRepositorioProduto, ProdutoRepositorio>();
-builder.Services.AddScoped<IRepositorioPedido, PedidoRepositorio>();
-builder.Services.AddScoped<IRepositorioProdutoXPedido, ProdutoXPedidoRepositorio>();
-builder.Services.AddScoped<IRepositorioTrasportadora, TransportadoraRepositorio>();
-builder.Services.AddScoped<IRepositorioUsuario, UsuarioRepositorio>();
-builder.Services.AddScoped<IRepositorioVendedor, VendedorRepositorio>();
+builder.Services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
+builder.Services.AddScoped<IPedidoRepositorio, PedidoRepositorio>();
+builder.Services.AddScoped<IProdutoXPedidoRepositorio, ProdutoXPedidoRepositorio>();
+builder.Services.AddScoped<ITransportadoraRepositorio, TransportadoraRepositorio>();
+builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
+builder.Services.AddScoped<IVendedorRepositorio, VendedorRepositorio>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

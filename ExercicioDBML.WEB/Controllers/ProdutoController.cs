@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ExercicioDBML.Lib.Models;
 using ExercicioDBML.WEB.DTOs;
-using ExercicioDBML.Lib.Data.Repositorio;
+using ExercicioDBML.Lib.Interfaces;
 
 namespace ExercicioDBML.WEB.Controllers
 {
@@ -11,9 +11,9 @@ namespace ExercicioDBML.WEB.Controllers
     public class ProdutoController : ControllerBase
     {
         private readonly ILogger<ProdutoController> _logger;
-        private readonly ProdutoRepositorio _repositorio;
+        private readonly IProdutoRepositorio _repositorio;
 
-        public ProdutoController(ILogger<ProdutoController> logger, ProdutoRepositorio repositorio) 
+        public ProdutoController(ILogger<ProdutoController> logger, IProdutoRepositorio repositorio) 
         {
             _logger = logger;
             _repositorio = repositorio;

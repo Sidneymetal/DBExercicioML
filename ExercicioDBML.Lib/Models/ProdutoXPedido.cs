@@ -19,6 +19,6 @@ namespace ExercicioDBML.Lib.Models
             IdPedido = idPedido;
             Produto = produto;
             Pedido = pedido;
-        }
+        }        
     }
 }

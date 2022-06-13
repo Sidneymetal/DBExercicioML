@@ -1,3 +1,5 @@
+using ExercicioDBML.Lib.Exceptions;
+
 namespace ExercicioDBML.Lib.Models
 
 {
@@ -17,6 +19,36 @@ namespace ExercicioDBML.Lib.Models
             Nome = nome;
             Telefone = telefone;
             Email = email;
+        }
+        public void SetEmail(string email)
+        {
+            if (ValidarEmail(email))
+            {
+                Email = email;
+            }
+        }
+        public bool ValidarEmail(string email)
+        {
+            if (email.Contains("@"))
+            {
+                return true;
+            }
+            throw new ExceptionsErroValidacao("O email deve conter @.");          
+        }
+        public void SetTelefone(string telefone)
+        {
+            if (ValidarTelefone(telefone))
+            {
+                Telefone = telefone;
+            }
+        }
+        public bool ValidarTelefone(string telefone)
+        {
+            if (telefone.Length >= 10 && telefone.Length <= 11)
+            {
+                return true;
+            }
+            throw new ExceptionsErroValidacao("O telefone deve ter 10 à 11 caracteres.");
         }
     }
 }

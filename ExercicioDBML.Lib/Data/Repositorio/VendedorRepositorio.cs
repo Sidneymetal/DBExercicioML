@@ -1,8 +1,9 @@
 using ExercicioDBML.Lib.Interfaces;
 using ExercicioDBML.Lib.Models;
+
 namespace ExercicioDBML.Lib.Data.Repositorio
 {
-    public class VendedorRepositorio : BaseRepositorio<Vendedor>, IRepositorioVendedor
+    public class VendedorRepositorio : BaseRepositorio<Vendedor>, IVendedorRepositorio
     {
         public VendedorRepositorio(ExercicioMLContext context) : base( context, context.Vendedores)
         {

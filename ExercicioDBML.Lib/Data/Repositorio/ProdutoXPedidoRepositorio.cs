@@ -3,7 +3,7 @@ using ExercicioDBML.Lib.Models;
 
 namespace ExercicioDBML.Lib.Data.Repositorio
 {
-    public class ProdutoXPedidoRepositorio : BaseRepositorio<ProdutoXPedido>, IRepositorioProdutoXPedido
+    public class ProdutoXPedidoRepositorio : BaseRepositorio<ProdutoXPedido>, IProdutoXPedidoRepositorio
     {
         public ProdutoXPedidoRepositorio(ExercicioMLContext context) : base(context, context.ProdutosXPedidos)
         {

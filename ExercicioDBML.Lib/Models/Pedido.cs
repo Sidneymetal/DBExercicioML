@@ -5,8 +5,8 @@ namespace ExercicioDBML.Lib.Models
     {       
         public int IdTransportadora { get; set; }
         public int IdUsuario { get; set; }
-        public DateTime dataPedido{ get; set; }
-        public string status { get; set; }
+        public DateTime DataPedido{ get; set; }
+        public string Status { get; set; }
         public Transportadora? Transportadora { get; set; }
         public Usuario? Cliente { get; set; }
         public List<ProdutoXPedido> ListaProdutosXPedidos { get; set; } = new List<ProdutoXPedido>();
@@ -20,10 +20,22 @@ namespace ExercicioDBML.Lib.Models
             Id = id;
             IdTransportadora = idTransportadora;
             IdUsuario = idUsuario;
-            dataPedido = dataPedido;
-            status = status;
+            DataPedido = dataPedido;
+            Status = status;
             Transportadora = transportadora;
             Cliente = usuario;
+        }
+        public void SetData(DateTime dataPedido)
+        {
+            ValidarDataAtual(dataPedido);
+        }
+        
+        public void ValidarDataAtual(DateTime dataCadastro)
+        {
+            if (dataCadastro > DateTime.Now)
+            {
+                DataPedido = dataCadastro;
+            }
         }
     }
 }

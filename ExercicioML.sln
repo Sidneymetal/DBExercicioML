@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExercicioDBML.Lib", "Exerci
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExercicioDBML", "ExercicioDBML.WEB\ExercicioDBML.csproj", "{A8666948-BE61-4B3C-B4DA-A4A8937FB552}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExercicioDBML.Test", "ExercicioDBML.Test\ExercicioDBML.Test.csproj", "{B4F82F22-9179-485F-BA85-C36A02E16ACD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{A8666948-BE61-4B3C-B4DA-A4A8937FB552}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8666948-BE61-4B3C-B4DA-A4A8937FB552}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8666948-BE61-4B3C-B4DA-A4A8937FB552}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4F82F22-9179-485F-BA85-C36A02E16ACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4F82F22-9179-485F-BA85-C36A02E16ACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4F82F22-9179-485F-BA85-C36A02E16ACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4F82F22-9179-485F-BA85-C36A02E16ACD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
